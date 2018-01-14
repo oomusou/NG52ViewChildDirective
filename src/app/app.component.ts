@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ChangeColorDirective } from './change-color.directive';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild(ChangeColorDirective)
+  private changeColorDirective: ChangeColorDirective;
   title = 'app';
+
+  onChangeColorClick() {
+    this.changeColorDirective.change('green');
+  }
 }
